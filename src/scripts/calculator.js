@@ -16,6 +16,12 @@ buttons.forEach(button => {
 
         // Obtendo o valor do botão clicado
         const buttonText = button.textContent;
+        button.classList.add('clicked');
+
+    // Remover a classe 'clicked' após um curto período de tempo para retornar ao estado normal
+    setTimeout(() => {
+      button.classList.remove('clicked');
+    }, 200);
 
         //Verifica se é o botão de igual ou operador 
         if (button.classList.contains('operator')){
@@ -43,11 +49,18 @@ function handleOperator(operator) {
     // Obtendo o valor atual do campo de resultado
     const currentValue = resultField.value;
 
-    if (currentValue.includes('+') || currentValue.includes('-') || currentValue.includes('x') || currentValue.includes('÷')) {
-        // Ignorando a operação se já existir uma
-        return;
-      };
+    // Verifica se o último caractere no campo de resultado é um operador
+  const lastChar = currentValue[currentValue.length - 1];
 
+
+  if (
+    lastChar === ' ' ||
+    (lastChar === '+' && operator !== '-') ||
+    (lastChar === '-' && operator === '-')
+  ) {
+    // Remove o último caractere do campo de resultado
+    resultField.value = currentValue.slice(0, -1);
+  }
     // Adicionando o operador ao campo de resultado
     resultField.value += operator;
 };
@@ -59,7 +72,7 @@ function calculateResult() {
     
      // Realizando a substituição dos operadores estilosos em expressões matemáticas
      const evaluatedExpression = expression
-     .replace('x', '*')
+     .replace('×', '*')
      .replace('÷', '/');
 
       // Verificando se a expressão contém uma divisão por zero

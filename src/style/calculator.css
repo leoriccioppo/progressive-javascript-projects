@@ -1,33 +1,58 @@
+@font-face {
+    font-family: 'SunnyspellsRegular';
+    src: url('../fonts/SunnyspellsRegular.otf');
+  }
 body{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-items: center;
     align-content: center;
-    background-color: #212121;
     flex-wrap: wrap;
     justify-content: center;
     font-size: 16px;
+    font-family: 'SunnyspellsRegular', sans-serif;
+    background-image: linear-gradient(
+  45deg,
+  hsl(308deg 33% 66%) 1%,
+  hsl(277deg 37% 72%) 46%,
+  hsl(249deg 46% 77%) 51%,
+  hsl(227deg 61% 79%) 51%,
+  hsl(226deg 76% 82%) 49%,
+  hsl(247deg 95% 87%) 49%,
+  hsl(274deg 100% 87%) 54%,
+  hsl(302deg 100% 86%) 99%
+);
 }
 .calculator{   
     flex-basis: 70%;
     max-width: 400px;
     height:500px;
-    background-color: beige;
     padding: 20px 35px;
     border-radius: 1.2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+	      -6px -6px 10px -1px rgba(255,255,255,0.7);
+
 }
 
 #result{
-    background: #e3edf7;
+    background: rgba(255, 255, 255, 0.8);
     max-width: 75%;
     padding: 1.2rem;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     border-radius: 1.2em;
-    border: 1px solid rgba(255, 255, 255, 0.01);
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+	      -6px -6px 10px -1px rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0);
+  color:#484d50;
+  font-family: 'SunnyspellsRegular';
+  
 }
 
 input{
@@ -43,13 +68,38 @@ input{
 }
 
 .button{
-    background: #e3edf7;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 1.2em;
     flex-basis: 20%;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+    font-family: 'SunnyspellsRegular';
     height: 65px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+	      -6px -6px 10px -1px rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0);
+  transition: transform 0.5s;
+  color:#484d50;
 }
 
+.clicked{
+    box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+	      inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+	      -0.5px -0.5px 0px rgba(255,255,255,1),
+	      0.5px 0.5px 0px rgba(0,0,0,0.15),
+	      0px 12px 10px -10px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  transform: translateY(0.5em);
+}
 
+.clear{
+    background:#c5b1d6;
+    color: #ffffff;
+    
+}
 
+.operator{
+    background: #f2d5e3;
+}
+
+.equal{
+    background: #bde6d9;
+}
