@@ -5,15 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe Game</title>
     <link rel="stylesheet" type="text/css" href="../style/reset.css">
+    <link rel="stylesheet" type="text/css" href="../style/tic-tac-toeGame.css">
 </head>
 <body>
-    <div class="container-canvas">
 
-        <canvas class="myCanvas">
+    <main class="game">
 
-        </canvas>
+        <div class="status">here</div>
 
-    </div>
+        <div class="board">
+            <div class="row">
+
+                <div class="cell" data-row="1" data-col="1"></div>
+                <div class="cell" data-row="1" data-col="2"></div>
+                <div class="cell" data-row="1" data-col="3"></div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="cell" data-row="2" data-col="1"></div>
+                <div class="cell" data-row="2" data-col="2"></div>
+                <div class="cell" data-row="2" data-col="3"></div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="cell" data-row="3" data-col="1"></div>
+                <div class="cell" data-row="3" data-col="2"></div>
+                <div class="cell" data-row="3" data-col="3"></div>
+
+            </div>
+            
+        </div>
+
+        <button class="reset">Recomeçar</button>
+
+    </main>
+    
     <script src="../scripts/tic-tac-toeGame.js"></script>
 </body>
 </html>
