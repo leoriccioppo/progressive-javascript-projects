@@ -33,23 +33,23 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.65);
+    background-color: rgb(255, 255, 255, 0.65);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
-	      -6px -6px 10px -1px rgba(255,255,255,0.7);
+    box-shadow: 6px 6px 10px -1px rgb(0,0,0,0.15),
+	      -6px -6px 10px -1px rgb(255,255,255,0.7);
 
 }
 
 #result{
-    background: rgba(255, 255, 255, 0.8);
+    background: rgb(255, 255, 255, 0.8);
     max-width: 75%;
     padding: 1.2rem;
     font-size: 1.6rem;
     border-radius: 1.2em;
-    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
-	      -6px -6px 10px -1px rgba(255,255,255,0.7);
-  border: 1px solid rgba(0,0,0,0);
+    box-shadow: 6px 6px 10px -1px rgb(0,0,0,0.15),
+	      -6px -6px 10px -1px rgb(255,255,255,0.7);
+  border: 1px solid rgb(0,0,0,0);
   color:#484d50;
   font-family: 'SunnyspellsRegular';
   
