@@ -15,28 +15,31 @@
 
 .status {
     background-color: beige;
-  }
+}
 
-  .board {
+.board {
     display: grid;
     grid-template-rows: repeat(3, 1fr);
     
-  }
+}
 
-  .row {
+.row {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  .cel {
+.cel {
     width: 80px;
     height: 80px;
     border: 1px solid rgb(255, 255, 255, 0.65);
     cursor: pointer;
-  }
+}
 
- 
+.cel .star,
+.cel .cloud{
+    cursor: not-allowed;
+}
 
 .cel[data-cel="0"],
 .cel[data-cel="1"],
@@ -60,7 +63,22 @@
 .cel[data-cel="7"],
 .cel[data-cel="8"]{
     border-bottom: none;
-
 }
 
+
+.star{
+    
+  background-image: url('../img/tic-tac-toeGame/star.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 85%;
+      
+}
   
+.cloud {
+    background-image: url('../img/tic-tac-toeGame/cloud.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+   
+  }

@@ -6,10 +6,17 @@ let gameActive = true;
 //referencias HTML
 const status = document.getElementsByClassName ('status');
 
-const cells = document.querySelectorAll('.cell');
+const celElements = document.querySelectorAll("['data-cel']");
 
 const restart = document.getElementsByClassName('restart');
 
-cells.forEach(cell=>{
-    cell.addEventListener('click', handleCLick);
+//exibir a jogador na tela
+const avatarPlayer = (cel, classToAdd) =>{
+    cel.classList.add(classToAdd);
+}
+
+
+
+celElements.forEach(cel=>{
+    cel.addEventListener('click', handleCLick, {once: true});
 })
