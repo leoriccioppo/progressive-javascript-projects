@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,37 +9,42 @@
 </head>
 <body>
 
-    <div class="message"></div>
-    <main class="game">
+    
+    <main id="game">
+        <div id="message">
+            <h2>Escolha seu jogador:</h2>
 
-        <div class="status">here</div>
-        
+            <div class="characters">
 
-        <div class="board">
-            <div class="row">
-
-                <div class="cel" data-cel="0"></div>
-                <div class="cel" data-cel="1"></div>
-                <div class="cel" data-cel="2"></div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="cel" data-cel="3"></div>
-                <div class="cel" data-cel="4"></div>
-                <div class="cel" data-cel="5"></div>
-
-            </div>
-
-            <div class="row">
-
-                <div class="cel" data-cel="6"></div>
-                <div class="cel" data-cel="7"></div>
-                <div class="cel" data-cel="8"></div>
+                <label>
+                    <img src="../img/tic-tac-toeGame/star.png">
+                    <input type="radio" name="player1" value="X" checked>
+                </label>
+                <label>
+                    <img src="../img/tic-tac-toeGame/cloud.png">
+                    <input type="radio" name="player1" value="O">
+                </label>
 
             </div>
             
+            <button onclick="selectPlayer()">Iniciar Jogo</button>
+        </div>
+
+        <div class="status">
+
+        </div>
+        
+
+        <div class="board">
+            <div class="cel" data-cel="0"></div>
+            <div class="cel" data-cel="1"></div>
+            <div class="cel" data-cel="2"></div>
+            <div class="cel" data-cel="3"></div>
+            <div class="cel" data-cel="4"></div>
+            <div class="cel" data-cel="5"></div>
+            <div class="cel" data-cel="6"></div>
+            <div class="cel" data-cel="7"></div>
+            <div class="cel" data-cel="8"></div>
         </div>
 
         <button class="reset">Recomeçar</button>
