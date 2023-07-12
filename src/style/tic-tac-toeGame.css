@@ -1,6 +1,9 @@
+*{
+    overflow-x: hidden;
+}
 #message{
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: rgb(255, 255, 255, 0.65);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -8,12 +11,53 @@
 	      -6px -6px 10px -1px rgb(255,255,255,0.7);
     display: flex;
     flex-direction: column;
-    position: absolute;
     justify-content: center;
     align-content: center;
     align-items: center;
     flex-wrap: wrap;
+    
 }
+
+
+.screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+    display: block;
+}
+
+  
+.fadeOutUp {
+    -webkit-animation-name: fadeOutUp;
+    animation-name: fadeOutUp;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes fadeOutUp {
+    0% {
+    opacity: 1;
+    }
+    100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    }
+    }
+    @keyframes fadeOutUp {
+    0% {
+    opacity: 1;
+    }
+    100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    }
+} 
 
 .characters{
     display: flex;
@@ -41,22 +85,17 @@
     rgb(168,192,238,1) 50%, 
     rgb(255,183,253,0.8995973389355743) 100%);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    align-content: space-around;
+    align-content: center;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap:12px
 }
 
-.status {
-    background-color: beige;
-}
 
 .board {
     display: grid;
     width: 100%;
-    height: 100%;
     justify-content: center;
     align-content: center;
     align-items: center;
@@ -117,4 +156,9 @@
     background-repeat: no-repeat;
     background-size: contain;
    
+  }
+
+  .reset{
+    background-color: pink;
+    display: block;
   }

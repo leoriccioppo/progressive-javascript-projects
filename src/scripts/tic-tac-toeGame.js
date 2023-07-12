@@ -3,11 +3,15 @@ let currentPlayer;
 let gameActive = true;
 
 //referencias HTML
-const status = document.getElementsByClassName ('status');
+const messageScreen = document.getElementById('message')
 
-const celElements = document.querySelectorAll('data-cel');
+const gameScreen = document.getElementById('game');
 
-const restart = document.getElementsByClassName('restart');
+const celElements = document.querySelectorAll('[data-cel]');
+
+const restart = document.getElementsByClassName('reset');
+
+const startButton = document.getElementById('start-button');
 
 //combinações vencendoras
 const winCombos = [
@@ -21,17 +25,23 @@ const winCombos = [
     [2, 4, 6]
 ]
 
-//selecionar primeiro player 
+//seleciona primeiro player e inicia tela do jogo
+startButton.addEventListener('click', selectPlayer);
 function selectPlayer() {
     const player1 = document.querySelector('input[name="player1"]:checked').value;
-    currentPlayer = player1;   
-    
-    //inicia a tela
-    const button = document.querySelector('button');
-    button.addEventListener('click',()=>{
-        document.getElementById('message').style.display = 'none';
-        document.getElementById('game').style.display = 'block';
-    })
+    currentPlayer = player1;
+
+    messageScreen.classList.add('fadeOutUp');
+    setTimeout(() => {
+        messageScreen.classList.remove('screen');
+        messageScreen.style.display = 'none';
+        gameScreen.classList.add('screen');
+      }, 1000); 
     console.log(player1);
 }
+
+console.log(player1);
+console.log(currentPlayer);
+
+
 

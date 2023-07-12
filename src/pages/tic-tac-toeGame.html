@@ -6,34 +6,32 @@
     <title>Tic-Tac-Toe Game</title>
     <link rel="stylesheet" type="text/css" href="../style/reset.css">
     <link rel="stylesheet" type="text/css" href="../style/tic-tac-toeGame.css">
+    
 </head>
 <body>
 
-    
-    <main id="game">
-        <div id="message">
-            <h2>Escolha seu jogador:</h2>
+    <div id="message" class="screen">
+        <h2>Escolha seu jogador:</h2>
 
-            <div class="characters">
+        <div class="characters">
 
-                <label>
-                    <img src="../img/tic-tac-toeGame/star.png">
-                    <input type="radio" name="player1" value="X" checked>
-                </label>
-                <label>
-                    <img src="../img/tic-tac-toeGame/cloud.png">
-                    <input type="radio" name="player1" value="O">
-                </label>
-
-            </div>
-            
-            <button onclick="selectPlayer()">Iniciar Jogo</button>
-        </div>
-
-        <div class="status">
+            <label>
+                <img src="../img/tic-tac-toeGame/star.png">
+                <input type="radio" name="player1" value="X" checked>
+            </label>
+            <label>
+                <img src="../img/tic-tac-toeGame/cloud.png">
+                <input type="radio" name="player1" value="O">
+            </label>
 
         </div>
         
+        <button id="start-button">Iniciar Jogo</button>
+    </div>
+    
+
+    
+    <main id="game">
 
         <div class="board">
             <div class="cel" data-cel="0"></div>
