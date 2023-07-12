@@ -104,39 +104,39 @@
     
 }
 
-.cel {
+.cell {
     width: 80px;
     height: 80px;
     border: 1px solid rgb(255, 255, 255, 0.65);
     cursor: pointer;
 }
 
-.cel .star,
-.cel .cloud{
+.cell .star,
+.cell .cloud{
     cursor: not-allowed;
 }
 
-.cel[data-cel="0"],
-.cel[data-cel="1"],
-.cel[data-cel="2"]{
+.cell[data-cell="0"],
+.cell[data-cell="1"],
+.cell[data-cell="2"]{
     border-top: none;
 }
 
-.cel[data-cel="0"],
-.cel[data-cel="3"],
-.cel[data-cel="6"]{
+.cell[data-cell="0"],
+.cell[data-cell="3"],
+.cell[data-cell="6"]{
     border-left: none;
 }
 
-.cel[data-cel="2"],
-.cel[data-cel="5"],
-.cel[data-cel="8"]{
+.cell[data-cell="2"],
+.cell[data-cell="5"],
+.cell[data-cell="8"]{
     border-right: none;
 }
 
-.cel[data-cel="6"],
-.cel[data-cel="7"],
-.cel[data-cel="8"]{
+.cell[data-cell="6"],
+.cell[data-cell="7"],
+.cell[data-cell="8"]{
     border-bottom: none;
 }
 
@@ -147,15 +147,13 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 85%;
-      
 }
   
 .cloud {
     background-image: url('../img/tic-tac-toeGame/cloud.png');
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: contain;
-   
+    background-size: contain; 
   }
 
   .reset{
