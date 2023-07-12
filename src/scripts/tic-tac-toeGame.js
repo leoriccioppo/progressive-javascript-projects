@@ -34,7 +34,6 @@ function selectPlayer() {
     console.log(player1);
     
     animateTransition();    
-    return player1;
 }
 //cuida da animação entre primeira e segunda tela
 function animateTransition() {
@@ -45,22 +44,35 @@ function animateTransition() {
     }, 1000);
 }
 
-//células do jogo
+//clique nas células do jogo
 function handleCellClick(event) {
-    //obter informações sobre a célula em que o evento de clique ocorreu.
+    //obter informações sobre a célula em que o clique ocorreu
     const selectedCell = event.target;
     const selectedCellIndex = parseInt(selectedCell.getAttribute('data-cel'));
-
-    if (currentPlayer === "X") {
-        selectedCell.classList.add("star");
-    } else if (currentPlayer === "O") {
-        selectedCell.classList.add("cloud");
+    
+    if (selectedCell.textContent !== '') {
+        selectedCell.style.cursor ="block";
+        return;
     }
+    
+    markCell(selectedCell, currentPlayer);
+    
+
+
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X'; // Alternar o jogador atual
+
 }
 
+function markCell(cell, player) {
+    cell.classList.add(player === 'X' ? 'star' : 'cloud');
+  }
+
+  //evento a cada célula
 cellElements.forEach(cell => {
     cell.addEventListener('click', handleCellClick);
   });
+
+
 
 
 
