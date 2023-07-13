@@ -1,5 +1,6 @@
 // Variáveis do jogo
 let currentPlayer;
+let player1;
 
 
 //referencias HTML
@@ -61,13 +62,33 @@ function handleCellClick(event) {
 
     currentPlayer = currentPlayer === 'X' ? 'O' : 'X'; // Alternar o jogador atual
 
+    setTimeout(() => {
+        if (currentPlayer !== player1) {
+            computerMove();
+        }      
+    }, 500);
+    
 }
 
+//adiocona a classe css na celula
 function markCell(cell, player) {
-    cell.classList.add(player === 'X' ? 'star' : 'cloud');
-  }
+    cell.classList.add(player === 'X' ? 'star' : 'cloud');  
+}
+   
+//jogadas do computador
+function computerMove() {
+    const emptyCells = Array.from(cellElements).filter(cell => !cell.classList.contains('star') && !cell.classList.contains('cloud'));
+    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+    const randomCell = emptyCells[randomIndex];
 
-  //evento a cada célula
+    
+    markCell(randomCell, currentPlayer);
+    
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X'; // Alternar o jogador atual
+}
+
+
+//evento a cada célula
 cellElements.forEach(cell => {
     cell.addEventListener('click', handleCellClick);
   });
