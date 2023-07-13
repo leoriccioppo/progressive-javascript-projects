@@ -158,7 +158,14 @@ body{
     background-size: contain; 
   }
 
-  .reset{
-    background-color: pink;
-    display: block;
+  button {
+    margin-top: 10px;
+    padding: 0.8rem 1.6rem;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: rgb(197,139,229,0.896796218487395);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   }

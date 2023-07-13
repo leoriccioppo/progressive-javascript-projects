@@ -9,6 +9,8 @@ const cellElements = document.querySelectorAll('[data-cell]');
 const restart = document.getElementById('reset');
 const startButton = document.getElementById('start-button');
 
+console.log(cellElements)
+
 // Combinações vencedoras
 const winCombos = [
   [0, 1, 2],
@@ -40,8 +42,7 @@ function animateTransition(screenToShow, callback) {
         messageScreen.classList.add('fadeOutUp');
         setTimeout(() => {
             screenToShow.classList.add('screen');   
-            messageScreen.classList.remove('screen');
-            messageScreen.classList.remove('fadeOutUp'); 
+            messageScreen.classList.remove('screen', 'fadeOutUp');
             messageScreen.style.display = 'none';   
         }, 1000);
     ;
@@ -56,9 +57,6 @@ function animateTransition(screenToShow, callback) {
             gameScreen.classList.remove('fadeOutUp')
             
         }, 1000);
-        
-        
-
     }
     callback();
 }
@@ -93,27 +91,35 @@ function handleCellClick(event) {
     selectedCell.style.cursor = 'block';
     return;
   }
+ 
 
   handlePlayerMove(selectedCell, selectedCellIndex);
+  console.log(selectedCell)
 }
 
 //Lida com os movimentos do jogador
 function handlePlayerMove(selectedCell, selectedCellIndex){
     markCell(selectedCell, currentPlayer);
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    
     removeCellClickListeners();
 
     if (checkWin(currentPlayer)) {
-        // O jogador atual venceu
+      setTimeout(() => {
+        //verifica se o jogador atual venceu
+        console.log('Vitória do jogador: ' + currentPlayer);
         alert('Jogador ' + currentPlayer + ' venceu!');
         // Implemente as ações apropriadas para lidar com a vitória (exibir mensagem, reiniciar o jogo, etc.)
-      } else if (checkDraw()) {
+      },500);
+      } 
+      else if (checkDraw()) {
         // Empate
-        setTimeout(() => {
+      setTimeout(() => {
           alert('Empate!');
         }, 500);
         // Implemente as ações apropriadas para lidar com o empate (exibir mensagem, reiniciar o jogo, etc.)
-      } else {setTimeout(() => {
+      } 
+      else {setTimeout(() => {
+        togglePlayer();
         handleComputerMove();
       }, 500);
     }
@@ -125,6 +131,11 @@ function markCell(cell, player) {
   cell.classList.add(player === 'X' ? 'star' : 'cloud');
 }
 
+//responsável pela troca de jogador
+function togglePlayer() {
+  currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+}
+
 // Jogadas do computador
 function handleComputerMove() {
     const emptyCells = Array.from(cellElements).filter(
@@ -134,17 +145,28 @@ function handleComputerMove() {
     const randomCell = emptyCells[randomIndex];
   
     markCell(randomCell, currentPlayer);
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-  
+
+    setTimeout(() => {
+    if (checkWin(currentPlayer)) {
+      console.log('Vitória do jogador: ' + currentPlayer);
+      alert('Jogador ' + currentPlayer + ' venceu!');
+      // Ações para lidar com a vitória
+      return; // Retorne para evitar que o código continue executando
+    }
+    togglePlayer();
     addCellClickListeners();
+    },500);
+    
+    
 }
 
 // Checa vitória
 function checkWin(player) {
+  const playerClass = player === 'X' ? 'star' : 'cloud';
   return winCombos.some(combo => {
     return combo.every(index => {
       const cell = cellElements[index];
-      return cell.classList.contains(player === 'X' ? 'star' : 'cloud');
+      return cell.classList.contains(playerClass);
     });
   });
 }
