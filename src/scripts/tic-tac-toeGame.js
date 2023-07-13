@@ -9,8 +9,6 @@ const cellElements = document.querySelectorAll('[data-cell]');
 const restart = document.getElementById('reset');
 const startButton = document.getElementById('start-button');
 
-console.log(cellElements)
-
 // Combinações vencedoras
 const winCombos = [
   [0, 1, 2],
@@ -29,7 +27,6 @@ startButton.addEventListener('click', selectPlayer);
 function selectPlayer() {
   player1 = document.querySelector('input[name="player1"]:checked').value;
   currentPlayer = player1;
-  console.log(player1);
   animateTransition(gameScreen, addCellClickListeners);
 }
 
@@ -106,7 +103,6 @@ function handlePlayerMove(selectedCell, selectedCellIndex){
     if (checkWin(currentPlayer)) {
       setTimeout(() => {
         //verifica se o jogador atual venceu
-        console.log('Vitória do jogador: ' + currentPlayer);
         alert('Jogador ' + currentPlayer + ' venceu!');
         // Implemente as ações apropriadas para lidar com a vitória (exibir mensagem, reiniciar o jogo, etc.)
       },500);
@@ -148,7 +144,6 @@ function handleComputerMove() {
 
     setTimeout(() => {
     if (checkWin(currentPlayer)) {
-      console.log('Vitória do jogador: ' + currentPlayer);
       alert('Jogador ' + currentPlayer + ' venceu!');
       // Ações para lidar com a vitória
       return; // Retorne para evitar que o código continue executando
