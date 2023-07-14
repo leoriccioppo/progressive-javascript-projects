@@ -63,9 +63,15 @@ body{
 
 .characters{
     display: flex;
-    height: 35%;
+    height: 36%;
     align-items: center;
 }
+
+.image-resize {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
 
 #message h2 {
     font-size: 24px;
@@ -77,6 +83,9 @@ body{
 #message label {
     display:flex;
     flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
   }
   
 
@@ -145,14 +154,14 @@ body{
 
 .star{
     
-  background-image: url('../img/tic-tac-toeGame/star.png');
+  background-image: url('../img/tic-tac-toeGame/star.svg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 85%;
 }
   
 .cloud {
-    background-image: url('../img/tic-tac-toeGame/cloud.png');
+    background-image: url('../img/tic-tac-toeGame/cloud.svg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain; 
@@ -168,4 +177,10 @@ body{
     cursor: pointer;
     background-color: rgb(197,139,229,0.896796218487395);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (min-width: 768px) {
+    .image-resize {
+      max-width: 66%;
+    }
   }
