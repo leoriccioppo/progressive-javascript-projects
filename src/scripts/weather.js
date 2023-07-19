@@ -13,6 +13,15 @@ const descriptionElement = document.querySelector('#description');
 const humdityElement = document.querySelector('#humidity');
 const windElement = document.querySelector('#wind');
 
+async function getWeatherData(city){
+    const apiWeatherUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+}
+
+function showeWeatherData(city){
+
+}
+
 searchButton.addEventListener('click', () => {
-    console.log('search');
+    const city = cityInput.value;
+    console.log(city);
 })
