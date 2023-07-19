@@ -1,4 +1,7 @@
-const apiKey = "163db620f1c61a0cc271e50a7f60976a";
+//pegar a api key de maneira oculta pelo arquivo .env ignorado no .gitignore
+require('dotenv').config();
+
+const apiKey = process.env.OPEN_WEATHER_API_KEY;
 const apiCountryFlagUrl = "https://www.countryflagicons.com/";
 
 //form
