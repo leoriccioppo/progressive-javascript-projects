@@ -1,1 +1,15 @@
+#Ignora API KEY
 .env
+
+# Ignorar a pasta node_modules
+node_modules/
+
+# arquivos temporários gerados pelo editor
+*.swp
+
+#arquivos específicos do sistema operacional
+Thumbs.db
+.DS_Store
+
+#arquivos de configuração do Visual Studio Code
+.vscode/

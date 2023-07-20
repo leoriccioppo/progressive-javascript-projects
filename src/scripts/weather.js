@@ -18,6 +18,11 @@ const windElement = document.querySelector('#wind');
 
 async function getWeatherData(city){
     const apiWeatherUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    const response = await fetch(apiWeatherUrl);
+    const data = await response.json();
+
+    console.log(data);
 }
 
 function showeWeatherData(city){
