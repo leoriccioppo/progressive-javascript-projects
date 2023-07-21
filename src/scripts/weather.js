@@ -1,7 +1,3 @@
-//pegar a api key de maneira oculta pelo arquivo .env ignorado no .gitignore
-require('dotenv').config();
-
-const apiKey = process.env.OPEN_WEATHER_API_KEY;
 const apiCountryFlagUrl = "https://www.countryflagicons.com/";
 
 //form
@@ -16,20 +12,26 @@ const descriptionElement = document.querySelector('#description');
 const humdityElement = document.querySelector('#humidity');
 const windElement = document.querySelector('#wind');
 
+//pegar os dados do clima e trata erro
 async function getWeatherData(city){
-    const apiWeatherUrl =`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    try {
+        const response = await fetch(`/weather/${city}`);
+        const weatherData = await response.json();
+        console.log(weatherData);
+        showWeatherData(weatherData);
+        // Chame a função showWeatherData(data) aqui para exibir os dados na página
+      } catch (error) {
+        console.error('Erro ao obter os dados climáticos:', error);
+      }
+    }
 
-    const response = await fetch(apiWeatherUrl);
-    const data = await response.json();
 
-    console.log(data);
-}
-
-function showeWeatherData(city){
-
+function showeWeatherData(data){
+    cityElement.textContent = data.name;
 }
 
 searchButton.addEventListener('click', () => {
     const city = cityInput.value;
+    getWeatherData(city);
     console.log(city);
 })
