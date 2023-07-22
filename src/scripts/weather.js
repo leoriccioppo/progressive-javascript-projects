@@ -16,7 +16,6 @@ async function getWeatherData(city){
     try {
         const response = await fetch(`http://localhost:5500/weather/${city}`);
         const weatherData = await response.json();
-        console.log(weatherData);
         return weatherData;
       } catch (error) {
         console.error('Erro ao obter os dados climáticos:', error);
@@ -28,13 +27,13 @@ async function showWeatherData(city){
     const data = await getWeatherData(city);
     
     cityElement.textContent = data.name;
-    countryFlagIcons.setAttribute('src', `https://www.countryflagicons.com/FLAT/24/${data.sys.country}.png`);
+    countryFlagIcons.setAttribute('src', `https://www.countryflagicons.com/SHINY/24/${data.sys.country}.png`);
     temperatureElement.textContent = parseInt(data.main.temp);
 
     descriptionElement.innerText = data.weather[0].description;
     weatherElement.setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
-    humdityElement.innerText = data.main.humidity;
-    windElement.innerText = data.wind.speed;
+    humdityElement.innerText =` ${data.main.humidity}%`;
+    windElement.innerText = ` ${data.wind.speed}km/h`;
 
 
 }
@@ -42,5 +41,4 @@ async function showWeatherData(city){
 searchButton.addEventListener('click', () => {
     const city = cityInput.value;
     showWeatherData(city);
-    console.log(city);
 })
