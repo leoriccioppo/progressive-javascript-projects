@@ -25,17 +25,33 @@ async function getWeatherData(city){
 //mostrar na página os dados 
 async function showWeatherData(city){
     const data = await getWeatherData(city);
+
+    addImageToContainer('screen', `https://source.unsplash.com/1600x900/?${city}`, 'Imagem da cidade');
     
     cityElement.textContent = data.name;
-    countryFlagIcons.setAttribute('src', `https://www.countryflagicons.com/SHINY/24/${data.sys.country}.png`);
+    addImageToContainer('country', `https://www.countryflagicons.com/SHINY/24/${data.sys.country}.png`, 'Bandeira do país');
     temperatureElement.textContent = parseInt(data.main.temp);
 
     descriptionElement.innerText = data.weather[0].description;
-    weatherElement.setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
+    addImageToContainer('weather-icon', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`, 'Ícone do clima');
     humdityElement.innerText =` ${data.main.humidity}%`;
     windElement.innerText = ` ${data.wind.speed}km/h`;
 
 
+}
+
+//construindo imagens
+function addImageToContainer(containerId, imageUrl, altText) {
+  const container = document.getElementById(containerId);
+
+  // Remover imagens existentes dentro do container, se houver
+  container.innerHTML = '';
+
+  const img = document.createElement('img');
+  img.src = imageUrl;
+  img.alt = altText;
+
+  container.appendChild(img);
 }
 
 //buscar com click e enter
