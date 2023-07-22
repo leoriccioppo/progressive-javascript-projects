@@ -15,7 +15,7 @@ const windElement = document.querySelector('#wind');
 //pegar os dados do clima e trata erro
 async function getWeatherData(city){
     try {
-        const response = await fetch(`/weather/${city}`);
+        const response = await fetch(`http://localhost:5500/weather/${city}`);
         const weatherData = await response.json();
         console.log(weatherData);
         showWeatherData(weatherData);
