@@ -18,7 +18,7 @@ app.get('/weather/:city', async (req, res) => {
   console.log('Rota /weather/:city foi acessada');
   const city = req.params.city;
   const apiKey = process.env.OPEN_WEATHER_API_KEY;
-  const apiWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  const apiWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=pt_br`;
 
   try {
     const response = await axios.get(apiWeatherUrl);
