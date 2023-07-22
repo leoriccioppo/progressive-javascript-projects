@@ -7,6 +7,7 @@ const countryFlagIcons = document.querySelector('#country');
 const temperatureElement = document.querySelector('#temperature');
 //description
 const descriptionElement = document.querySelector('#description');
+const weatherElement = document.querySelector('#weather-icon');
 const humdityElement = document.querySelector('#humidity');
 const windElement = document.querySelector('#wind');
 
@@ -22,24 +23,16 @@ async function getWeatherData(city){
       }
 }
 
-//bandeira
-function showFlag(countryCode) {
-  const flagImg = document.querySelector('#country');
-  flagImg.src = `https://www.countryflagicons.com/FLAT/24/${countryCode}.png`;
-  flagImg.alt = 'Bandeira do país';
-}
-
 //mostrar na página os dados 
 async function showWeatherData(city){
     const data = await getWeatherData(city);
-    // Obtém o código do país a partir dos dados da API
-    const countryCode = data.sys.country;
-
+    
     cityElement.textContent = data.name;
-    showFlag(countryCode);
-    temperatureElement.innerText = parseInt(data.main.temp);
+    countryFlagIcons.setAttribute('src', `https://www.countryflagicons.com/FLAT/24/${data.sys.country}.png`);
+    temperatureElement.textContent = parseInt(data.main.temp);
 
     descriptionElement.innerText = data.weather[0].description;
+    weatherElement.setAttribute('src', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`);
     humdityElement.innerText = data.main.humidity;
     windElement.innerText = data.wind.speed;
 
