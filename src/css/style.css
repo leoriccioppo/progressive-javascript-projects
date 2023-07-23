@@ -122,7 +122,7 @@ table {
   background: #bde6d9;
 }
 
-.page-tic-tac-toeGame body {
+.page-tic-tac-toeGame {
   background: linear-gradient(90deg, rgba(197, 139, 229, 0.8967962185) 0%, rgb(168, 192, 238) 50%, rgba(255, 183, 253, 0.8995973389) 100%);
 }
 .page-tic-tac-toeGame #message {
