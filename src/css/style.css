@@ -43,11 +43,7 @@ table {
   border-spacing: 0;
 }
 
-@font-face {
-  font-family: "SunnyspellsRegular";
-  src: url("../fonts/SunnyspellsRegular.otf");
-}
-body {
+.pageCalculator {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -59,8 +55,11 @@ body {
   font-family: "SunnyspellsRegular", sans-serif;
   background-image: linear-gradient(45deg, hsl(308, 33%, 66%) 1%, hsl(277, 37%, 72%) 46%, hsl(249, 46%, 77%) 51%, hsl(227, 61%, 79%) 51%, hsl(226, 76%, 82%) 49%, hsl(247, 95%, 87%) 49%, hsl(274, 100%, 87%) 54%, hsl(302, 100%, 86%) 99%);
 }
-
-.calculator {
+@font-face {
+  font-family: "SunnyspellsRegular";
+  src: url("../fonts/SunnyspellsRegular.otf");
+}
+.pageCalculator .calculator {
   flex-basis: 70%;
   max-width: 400px;
   height: 500px;
@@ -74,8 +73,7 @@ body {
   -webkit-backdrop-filter: blur(16px);
   box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 }
-
-#result {
+.pageCalculator #result {
   background: rgba(255, 255, 255, 0.8);
   max-width: 75%;
   padding: 1.2rem;
@@ -86,21 +84,18 @@ body {
   color: #484d50;
   font-family: "SunnyspellsRegular";
 }
-
-input {
+.pageCalculator input {
   width: 55%;
   overflow-x: scroll;
   overflow-y: hidden;
 }
-
-.row {
+.pageCalculator .row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 5% 0;
 }
-
-.button {
+.pageCalculator .button {
   border-radius: 1.2em;
   flex-basis: 20%;
   font-size: 1.6rem;
@@ -111,24 +106,175 @@ input {
   transition: transform 0.5s;
   color: #484d50;
 }
-
-.clicked {
+.pageCalculator .clicked {
   box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2), inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7), -0.5px -0.5px 0px rgb(255, 255, 255), 0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
   transform: translateY(0.5em);
 }
-
-.clear {
+.pageCalculator .clear {
   background: #c5b1d6;
   color: #ffffff;
 }
-
-.operator {
+.pageCalculator .operator {
   background: #f2d5e3;
 }
-
-.equal {
+.pageCalculator .equal {
   background: #bde6d9;
+}
+
+.page-tic-tac-toeGame body {
+  background: linear-gradient(90deg, rgba(197, 139, 229, 0.8967962185) 0%, rgb(168, 192, 238) 50%, rgba(255, 183, 253, 0.8995973389) 100%);
+}
+.page-tic-tac-toeGame #message {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.page-tic-tac-toeGame .screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+}
+.page-tic-tac-toeGame .fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+@keyframes fadeOutUp {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+.page-tic-tac-toeGame .characters {
+  display: flex;
+  height: 36%;
+  align-items: center;
+}
+.page-tic-tac-toeGame .image-resize {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.page-tic-tac-toeGame #message h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #484d50;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.page-tic-tac-toeGame #message label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.page-tic-tac-toeGame #game {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(90deg, rgba(197, 139, 229, 0.8967962185) 0%, rgb(168, 192, 238) 50%, rgba(255, 183, 253, 0.8995973389) 100%);
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.page-tic-tac-toeGame .board {
+  display: grid;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+.page-tic-tac-toeGame .cell {
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  cursor: pointer;
+}
+.page-tic-tac-toeGame .cell .star,
+.page-tic-tac-toeGame .cell .cloud {
+  cursor: not-allowed;
+}
+.page-tic-tac-toeGame .cell[data-cell="0"],
+.page-tic-tac-toeGame .cell[data-cell="1"],
+.page-tic-tac-toeGame .cell[data-cell="2"] {
+  border-top: none;
+}
+.page-tic-tac-toeGame .cell[data-cell="0"],
+.page-tic-tac-toeGame .cell[data-cell="3"],
+.page-tic-tac-toeGame .cell[data-cell="6"] {
+  border-left: none;
+}
+.page-tic-tac-toeGame .cell[data-cell="2"],
+.page-tic-tac-toeGame .cell[data-cell="5"],
+.page-tic-tac-toeGame .cell[data-cell="8"] {
+  border-right: none;
+}
+.page-tic-tac-toeGame .cell[data-cell="6"],
+.page-tic-tac-toeGame .cell[data-cell="7"],
+.page-tic-tac-toeGame .cell[data-cell="8"] {
+  border-bottom: none;
+}
+.page-tic-tac-toeGame .star {
+  background-image: url("../img/tic-tac-toeGame/star.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 85%;
+}
+.page-tic-tac-toeGame .cloud {
+  background-image: url("../img/tic-tac-toeGame/cloud.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.page-tic-tac-toeGame button {
+  margin-top: 10px;
+  padding: 0.8rem 1.6rem;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  background-color: rgba(197, 139, 229, 0.8967962185);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+@media (min-width: 768px) {
+  .page-tic-tac-toeGame .image-resize {
+    max-width: 66%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
