@@ -341,12 +341,8 @@ background: linear-gradient(90deg, rgb(197,139,229,0.896796218487395) 0%,
   background: -webkit-linear-gradient(40deg, #C58BE5 25%, #FFB7FD 50%, #A8C0EE 75%);
   background: linear-gradient(40deg, #C58BE5 25%, #FFB7FD 50%, #A8C0EE 75%);
 }
-.pageWeather .form {
-  background: #C58BE5;
-  background: -moz-radial-gradient(circle, #C58BE5 25%, #FFB7FD 50%, #A8C0EE 75%);
-  background: -webkit-radial-gradient(circle, #C58BE5 25%, #FFB7FD 50%, #A8C0EE 75%);
-  background: radial-gradient(circle, #C58BE5 25%, #FFB7FD 50%, #A8C0EE 75%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#C58BE5", endColorstr="#A8C0EE", GradientType=1);
+.pageWeather .form button {
+  background-color: aqua;
 }
 
 /*# sourceMappingURL=style.css.map */

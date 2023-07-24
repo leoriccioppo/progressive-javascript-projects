@@ -6,9 +6,9 @@
 
     .form{
 
-        @include mixins.gradient-background-circle;
-
-        
+        button{
+            background-color: aqua;
+        }
     }
 
 }
