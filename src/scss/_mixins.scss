@@ -1,0 +1,36 @@
+@import'variables';
+
+@mixin gradient-background-line {
+    background: -moz-linear-gradient(40deg, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
+    background: -webkit-linear-gradient(40deg, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
+    background: linear-gradient(40deg, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
+  }
+
+@mixin gradient-background-circle {
+    background: $brand-primary;
+    background: -moz-radial-gradient(circle, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
+    background: -webkit-radial-gradient(circle, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
+    background: radial-gradient(circle, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#{$brand-primary}", endColorstr="#{$brand-tertiary}", GradientType=1);
+}
+
+  
+  /*background-image: linear-gradient(
+  45deg,
+  hsl(308deg 33% 66%) 1%,
+  hsl(277deg 37% 72%) 46%,
+  hsl(249deg 46% 77%) 51%,
+  hsl(227deg 61% 79%) 51%,
+  hsl(226deg 76% 82%) 49%,
+  hsl(247deg 95% 87%) 49%,
+  hsl(274deg 100% 87%) 54%,
+  hsl(302deg 100% 86%) 99%
+
+  outro
+
+  background: linear-gradient(90deg, rgb(197,139,229,0.896796218487395) 0%, 
+    rgb(168,192,238,1) 50%, 
+    rgb(255,183,253,0.8995973389355743) 100%);
+  */
+
+  
