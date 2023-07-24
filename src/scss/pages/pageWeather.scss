@@ -1,0 +1,14 @@
+@use '../variables' as vars;
+@use'../mixins' as mixins;
+
+.pageWeather{
+    @include mixins.gradient-background-line;
+
+    .form{
+
+        @include mixins.gradient-background-circle;
+
+        
+    }
+
+}
