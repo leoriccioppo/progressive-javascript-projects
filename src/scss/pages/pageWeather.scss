@@ -5,10 +5,7 @@
     @include mixins.gradient-background-line;
 
     .form{
-
-        button{
-            background-color: aqua;
-        }
+        @include mixins.button-tecla(vars.$white, vars.$brand-secondary, vars.$brand-tertiary, vars.$black, 35px);
     }
 
 }

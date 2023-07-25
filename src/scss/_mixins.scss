@@ -34,4 +34,78 @@
   */
 
   //butons
- 
+  @mixin button-tecla($background, $hover-background, $icon-color, $hover-icon-color, $size) {
+    .btn {
+      display: grid;
+      place-items: center;
+      background: $background;
+      padding: $size / 10; // Definindo o padding baseado no tamanho do botão
+      border-radius: $size / 8; // Definindo o border-radius baseado no tamanho do botão
+      box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+        -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(0, 0, 0, 0);
+      cursor: pointer;
+      transition: transform 0.5s, background-color 0.5s;
+      font-size: $size / 4; // Definindo a font-size baseada no tamanho do botão
+      color:$icon-color;
+    }
+  
+    .btn:active {
+      box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+        inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+        -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+        0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+        0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      transform: translateY(0.5em);
+      background-color: $hover-background;
+      color:$hover-icon-color;
+    }
+  
+    .btn .btn-element {
+      transition: transform 0.5s, fill 0.5s;
+      color: $icon-color;
+    }
+  
+    .btn:active .btn-element {
+      transform: scale(0.9);
+      color: $hover-icon-color;
+    }
+  }
+  
+
+@mixin button($background, $color, $gradient-color-1, $gradient-color-2) {
+  .btn {
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 2rem;
+    border-radius: 1.5rem;
+    background: $background;
+    background-size: 400%;
+    color: $color;
+    border: none;
+    &:hover {
+      &::before {
+        transform: scaleX(1);
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      width: 100%;
+      height: inherit;
+      border-radius: inherit;
+      background: linear-gradient(82.3deg, $gradient-color-1 10.8%, $gradient-color-2 94.3%);
+      transition: all 0.475s;
+    }
+  }
+  .btn-content {
+    position: relative;
+    z-index: 1;
+  }
+}

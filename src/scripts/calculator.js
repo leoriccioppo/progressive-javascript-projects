@@ -8,7 +8,7 @@ const clearButton = document.getElementsByClassName('clear');
 
 const operatorButton = document.getElementsByClassName('operator');
 
-const buttons = Array.from(document.getElementsByClassName('button'));
+const buttons = Array.from(document.getElementsByClassName('btn'));
 
 // Manipulador de evento de clique a cada botão
 buttons.forEach(button => {
@@ -16,12 +16,6 @@ buttons.forEach(button => {
 
         // Obtendo o valor do botão clicado
         const buttonText = button.textContent;
-        button.classList.add('clicked');
-
-    // Remover a classe 'clicked' após um curto período de tempo para retornar ao estado normal
-    setTimeout(() => {
-      button.classList.remove('clicked');
-    }, 200);
 
         //Verifica se é o botão de igual ou operador 
         if (button.classList.contains('operator')){

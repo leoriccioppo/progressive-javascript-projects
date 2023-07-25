@@ -1,4 +1,4 @@
-@use '../variables';
+@use '../variables' as vars;
 @use'../mixins';
 
 .pageCalculator {
@@ -10,28 +10,21 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	font-size: 16px;
-	font-family: 'SunnyspellsRegular', sans-serif;
+	font-family:sans-serif;
 	@include mixins.gradient-background-line;
 
-@font-face {
-	font-family: 'SunnyspellsRegular';
-	src: url('../fonts/SunnyspellsRegular.otf');
-}
-
 .calculator {
-	flex-basis: 70%;
-	max-width: 400px;
-	height: 500px;
-	padding: 20px 35px;
-	border-radius: 1.2em;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	background-color: rgb(255, 255, 255, 0.65);
-	backdrop-filter: blur(16px);
-	-webkit-backdrop-filter: blur(16px);
-	box-shadow: 6px 6px 10px -1px rgb(0,0,0,0.15),
-       -6px -6px 10px -1px rgb(255,255,255,0.7);
+  flex-basis: 70%;
+  max-width: 400px;
+  height: 500px;
+  padding: 20px 35px;
+  border-radius: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.65);
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+    -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 }
 #result {
 	background: rgb(255, 255, 255, 0.8);
@@ -56,33 +49,16 @@ input {
 	justify-content: space-between;
 	margin: 5% 0;
 }
-.button {
-	border-radius: 1.2em;
-	flex-basis: 20%;
-	font-size: 1.6rem;
-	font-family: 'SunnyspellsRegular';
-	height: 65px;
-	box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
-       -6px -6px 10px -1px rgba(255,255,255,0.7);
-	border: 1px solid rgba(0,0,0,0);
-	transition: transform 0.5s;
-	color: #484d50;
-}
-.clicked {
-	box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
-       inset -4px -4px 6px -1px rgba(255,255,255,0.7),
-	      -0.5px -0.5px 0px rgba(255,255,255,1),
-	      0.5px 0.5px 0px rgba(0,0,0,0.15),
-	      0px 12px 10px -10px rgba(0,0,0,0.05);
-	border: 1px solid rgba(0,0,0,0.1);
-	transform: translateY(0.5em);
-}
+@include mixins.button-tecla(vars.$white, vars.$brand-secondary, vars.$brand-tertiary, vars.$brand-primary, 8rem);
+
+
 .clear {
 	background: #c5b1d6;
 	color: #ffffff;
 }
 .operator {
 	background: #f2d5e3;
+	
 }
 .equal {
 	background: #bde6d9;
