@@ -1,0 +1,13 @@
+@use '../variables' as vars;
+@use'../mixins';
+ .grid-container{
+    background-color: vars.$white;
+    display: grid;
+    align-self: center;
+    div{
+
+        align-self: center;
+        justify-content: center;
+        background-color: vars.$brand-tertiary;
+    }
+ }

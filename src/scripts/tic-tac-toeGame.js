@@ -34,24 +34,30 @@ function selectPlayer() {
 function animateTransition(screenToShow, callback) {
 
     if(screenToShow == gameScreen){
+        //estilo botao
+        restart.classList.add('btn');
         //remover display none
         screenToShow.style.removeProperty('display');
         messageScreen.classList.add('fadeOutUp');
         setTimeout(() => {
             screenToShow.classList.add('screen');   
             messageScreen.classList.remove('screen', 'fadeOutUp');
+            startButton.classList.remove('btn');
             messageScreen.style.display = 'none';   
         }, 1000);
     ;
         
     }else if (screenToShow == messageScreen){
+        //estilo botao
+        startButton.classList.add('btn');
         //remover display none
         screenToShow.style.removeProperty('display');
         gameScreen.classList.add('fadeOutUp');
         setTimeout(() => {
             screenToShow.classList.add('screen');
-            gameScreen.classList.remove('screen')
-            gameScreen.classList.remove('fadeOutUp')
+            gameScreen.classList.remove('screen');
+            gameScreen.classList.remove('fadeOutUp');
+            restart.classList.remove('btn');
             
         }, 1000);
     }

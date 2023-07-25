@@ -4,10 +4,17 @@
 
 .pageWeather{
     @include mixins.gradient-background-line;
+    display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-items: center;
+	align-content: center;
+	flex-wrap: wrap;
+	justify-content: center;
 
     .form{
         button{
-            @include mixins.button-basic(vars.$white, vars.$brand-secondary, vars.$brand-secondary, 0.86rem, vars.$brand-tertiary, vars.$black);
+            @include mixins.button-basic(vars.$white, vars.$brand-secondary, vars.$brand-secondary, 0.66rem, vars.$brand-tertiary, vars.$black);
         }
 
         }
