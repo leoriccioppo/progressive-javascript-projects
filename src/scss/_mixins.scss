@@ -36,18 +36,24 @@
   //butons
   @mixin button-tecla($background, $hover-background, $icon-color, $hover-icon-color, $size) {
     .btn {
+      appearance: none;
       display: grid;
       place-items: center;
       background: $background;
-      padding: $size / 10; // Definindo o padding baseado no tamanho do botão
-      border-radius: $size / 8; // Definindo o border-radius baseado no tamanho do botão
+      padding: $size / 10;
+      border-radius: $size / 8;
       box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
         -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
       border: 1px solid rgba(0, 0, 0, 0);
       cursor: pointer;
-      transition: transform 0.5s, background-color 0.5s;
-      font-size: $size / 4; // Definindo a font-size baseada no tamanho do botão
-      color:$icon-color;
+      transition: transform 0.9s, background-color 0.9s;
+      font-size: $size / 4;
+      color: $icon-color;
+  
+      // Aplicar estilos de transição para elementos filhos de .btn
+      & > * {
+        transition: transform 0.5s, color 0.5s;
+      }
     }
   
     .btn:active {
@@ -59,53 +65,64 @@
       border: 1px solid rgba(0, 0, 0, 0.1);
       transform: translateY(0.5em);
       background-color: $hover-background;
-      color:$hover-icon-color;
-    }
-  
-    .btn .btn-element {
-      transition: transform 0.5s, fill 0.5s;
-      color: $icon-color;
-    }
-  
-    .btn:active .btn-element {
-      transform: scale(0.9);
       color: $hover-icon-color;
-    }
-  }
   
-
-@mixin button($background, $color, $gradient-color-1, $gradient-color-2) {
-  .btn {
-    position: relative;
-    overflow: hidden;
-    height: 3rem;
-    padding: 0 2rem;
-    border-radius: 1.5rem;
-    background: $background;
-    background-size: 400%;
-    color: $color;
-    border: none;
-    &:hover {
-      &::before {
-        transform: scaleX(1);
+      // Aplicar estilos de transição para elementos filhos de .btn quando estiver ativo
+      & > * {
+        transform: scale(0.9);
       }
     }
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: scaleX(0);
-      transform-origin: 0 50%;
-      width: 100%;
-      height: inherit;
-      border-radius: inherit;
-      background: linear-gradient(82.3deg, $gradient-color-1 10.8%, $gradient-color-2 94.3%);
-      transition: all 0.475s;
-    }
+}
+  
+  
+
+@mixin button-basic($background, $border-color, $text-color, $size, $text-hover, $background-hover) {
+  // Calcula o padding proporcional ao $size
+  $padding-vertical: $size / 2;
+  $padding-horizontal: $size * 2;
+
+  background-color: $background;
+  border: 0.125rem solid $border-color;
+  border-radius: 0.9375em;
+  box-sizing: border-box;
+  color: $text-color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.6em;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-width: 0;
+  outline: none;
+
+  // Aplica o padding proporcional
+  padding: $padding-vertical $padding-horizontal;
+
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+
+  &:hover {
+    color: $text-hover;
+    background-color: $background-hover;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
   }
-  .btn-content {
-    position: relative;
-    z-index: 1;
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  &:active {
+    box-shadow: none;
+    transform: translateY(0);
+    color: $text-hover;
+    background-color: $background-hover;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
   }
 }

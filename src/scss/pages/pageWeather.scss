@@ -1,11 +1,16 @@
 @use '../variables' as vars;
-@use'../mixins' as mixins;
+@use'../mixins';
+@import'../reset';
 
 .pageWeather{
     @include mixins.gradient-background-line;
 
     .form{
-        @include mixins.button-tecla(vars.$white, vars.$brand-secondary, vars.$brand-tertiary, vars.$black, 35px);
-    }
+        button{
+            @include mixins.button-basic(vars.$white, vars.$brand-secondary, vars.$brand-secondary, 0.86rem, vars.$brand-tertiary, vars.$black);
+        }
+
+        }
+       
 
 }

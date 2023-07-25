@@ -49,7 +49,7 @@ input {
 	justify-content: space-between;
 	margin: 5% 0;
 }
-@include mixins.button-tecla(vars.$white, vars.$brand-secondary, vars.$brand-tertiary, vars.$brand-primary, 8rem);
+@include mixins.button-tecla(vars.$white, vars.$brand-secondary, vars.$brand-tertiary, vars.$black, 8rem);
 
 
 .clear {
