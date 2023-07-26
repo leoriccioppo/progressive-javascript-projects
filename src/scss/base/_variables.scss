@@ -1,23 +1,70 @@
 //minhas cores
 $brand-primary: #C58BE5;
+$brand-primary-lighter-1: #D2A4EA;
+$brand-primary-lighter-2: #DFBEF0;
+$brand-primary-lighter-3: #ECD8F6;
+$brand-primary-lighter-4: #F9F2FC;
+$brand-primary-darker-1: #A448D5;
+$brand-primary-darker-2: #7926A6;
+$brand-primary-darker-3: #491764;
+$brand-primary-darker-4: #180821;
+
 $brand-secondary: #FFB7FD;
+$brand-secondary-lighter-1: #FFC0FD;
+$brand-secondary-lighter-2: #FFD7FE;
+$brand-secondary-lighter-3: #FFE7FE;
+$brand-secondary-lighter-4: #FFF7FF;
+$brand-secondary-darker-1: #FF9CFC;
+$brand-secondary-darker-2: #FF5CFA;
+$brand-secondary-darker-3: #C900C2;
+$brand-secondary-darker-4: #490047;
+
+
 $brand-tertiary: #A8C0EE;
+$brand-tertiary-lighter-1: #BDCFF2;
+$brand-tertiary-lighter-2: #D0DDF6;
+$brand-tertiary-lighter-3: #E3EBF9;
+$brand-tertiary-lighter-4: #F6F8FD;
+$brand-tertiary-darker-1: #7FA3E6;
+$brand-tertiary-darker-2: #5584DD;
+$brand-tertiary-darker-3: #265CC0;
+$brand-tertiary-darker-4: #15336A;
+
+
 
 $transparent: transparent;
 //neutras
 $white: #F5F5F7;
+$white-lighter-1: #F7F7F9;
+$white-lighter-2: #F9F9FA;
+$white-lighter-3: #FCFCFD;
+$white-lighter-4: #FEFEFE;
+$white-darker-1: #EBEBEF;
+$white-darker-2: #E5E5E7;
+$white-darker-3: #DFDFE5;
+$white-darker-4: #D3D3DB;
+
 $black: #1D1D1F;
+$black-lighter-1: #363639;
+$black-lighter-2: #7F7F86;
+$black-lighter-3: #B2B2B6;
+$black-lighter-4: #CCCCCF;
+$black-darker-1: #1A1A1C;
+$black-darker-2: #171719;
+$black-darker-3: #141415;
+$black-darker-4: #030304;
+
 
 //mensagem alert, ok, erro
 $atention:#FCE49B;
 $sucess:#79BB51;
 $danger:#E33942;
 
-$color-map: (
-    'primary': $brand-primary,
-    'secondary': $brand-secondary,
-    'tertiary': $brand-tertiary,
-);
-
-/*font-family: 'Fjalla One', sans-serif;
-font-family: 'Lora', serif;*/
+//fontes
+// Variáveis das fontes
+$font-family-fjalla-one: 'Fjalla One', sans-serif;
+$font-family-lora: 'Lora', serif;
+$font-weight-lora-regular: 400;
+$font-weight-lora-bold: 600;
+$font-weight-lora-italic-regular: 400;
+$font-weight-lora-italic-bold: 600;
