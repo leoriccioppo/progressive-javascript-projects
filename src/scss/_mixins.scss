@@ -1,4 +1,4 @@
-@import'variables';
+@import'base/variables';
 
 @mixin gradient-background-line {
     background: -moz-linear-gradient(40deg, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
@@ -63,7 +63,7 @@
         0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
         0px 12px 10px -10px rgba(0, 0, 0, 0.05);
       border: 1px solid rgba(0, 0, 0, 0.1);
-      transform: translateY(0.5em);
+      transform: translateY(0.3em);
       background-color: $hover-background;
       color: $hover-icon-color;
   

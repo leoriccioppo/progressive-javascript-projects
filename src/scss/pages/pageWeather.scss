@@ -1,6 +1,5 @@
-@use '../variables' as vars;
+@use '../base/variables' as vars;
 @use'../mixins';
-@import'../reset';
 
 .pageWeather{
     @include mixins.gradient-background-line;

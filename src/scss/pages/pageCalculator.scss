@@ -1,5 +1,6 @@
-@use '../variables' as vars;
+@use '../base/variables' as vars;
 @use'../mixins';
+@use'../layout';
 
 .pageCalculator {
 	display: flex;
@@ -25,6 +26,7 @@
   background-color: rgba(255, 255, 255, 0.65);
   box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
     -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+	
 }
 #result {
 	background: rgb(255, 255, 255, 0.8);
@@ -50,6 +52,7 @@ input {
 	margin: 5% 0;
 }
 @include mixins.button-tecla(vars.$white, vars.$brand-secondary, vars.$brand-tertiary, vars.$black, 8rem);
+
 
 
 .clear {
