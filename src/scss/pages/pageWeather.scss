@@ -4,12 +4,8 @@
 
 .pageWeather{
     @include mixins.gradient-background-line;
-    display: flex;
-	flex-direction: row;
+    display:grid;
 	align-items: center;
-	justify-items: center;
-	align-content: center;
-	flex-wrap: wrap;
 	justify-content: center;
 
     .form{

@@ -382,12 +382,8 @@ table {
   background: -moz-linear-gradient(40deg, #C58BE5 25%, #FFB7FD 50%, #A8C0EE 75%);
   background: -webkit-linear-gradient(40deg, #C58BE5 25%, #FFB7FD 50%, #A8C0EE 75%);
   background: linear-gradient(40deg, #C58BE5 25%, #FFB7FD 50%, #A8C0EE 75%);
-  display: flex;
-  flex-direction: row;
+  display: grid;
   align-items: center;
-  justify-items: center;
-  align-content: center;
-  flex-wrap: wrap;
   justify-content: center;
 }
 .pageWeather .form button {
