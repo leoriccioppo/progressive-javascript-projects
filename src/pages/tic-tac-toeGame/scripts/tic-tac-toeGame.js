@@ -44,6 +44,7 @@ function animateTransition(screenToShow, callback) {
             messageScreen.classList.remove('screen', 'fadeOutUp');
             startButton.classList.remove('btn');
             messageScreen.style.display = 'none';   
+           // startButton.classList.add('btn');
         }, 1000);
     ;
         

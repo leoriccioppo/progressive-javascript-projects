@@ -6,7 +6,13 @@
     background: linear-gradient(40deg, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
   }
 
-@mixin gradient-background-circle {
+@mixin hidden{
+  .hidden {
+    display: none;
+  }
+}
+
+  @mixin gradient-background-circle {
     background: $brand-primary;
     background: -moz-radial-gradient(circle, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
     background: -webkit-radial-gradient(circle, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
@@ -56,7 +62,7 @@
       }
     }
   
-    .btn:active {
+    .btn:active & :hover{
       box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
         inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
         -0.5px -0.5px 0px rgba(255, 255, 255, 1),

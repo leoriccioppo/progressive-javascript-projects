@@ -1,18 +1,46 @@
 @use '../base/variables' as vars;
 @use'../mixins';
+@use'../layout';
 
 .pageWeather{
     @include mixins.gradient-background-line;
-    display:grid;
-	align-items: center;
-	justify-content: center;
+    @include layout.centerApp;
 
+    #background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.5;
+        z-index: -1;
+    }
+   
     .form{
-        button{
-            @include mixins.button-basic(vars.$white, vars.$brand-secondary, vars.$brand-secondary, 0.66rem, vars.$brand-tertiary, vars.$black);
+        display:grid;
+        grid-template-rows: 1fr 1fr;
+        margin:1.6rem auto;
+        padding: 16px;
+        gap:0.8rem;
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+        align-content: center;
+        h2{
+            grid-column: span 3;
+            text-align:center;
+            color:vars.$black-lighter-1;
         }
 
+        input{
+            grid-column: span 2;
+            align-self: center;
         }
+            @include mixins.button-tecla(vars.$brand-primary, vars.$brand-primary-darker-2, vars.$white, vars.$white-darker-2, 3rem);
+    }
+
+    @include mixins.hidden;
        
-
 }

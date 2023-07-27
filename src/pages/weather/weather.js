@@ -26,7 +26,7 @@ async function getWeatherData(city){
 async function showWeatherData(city){
     const data = await getWeatherData(city);
 
-    addImageToContainer('screen', `https://source.unsplash.com/1600x900/?${city}`, 'Imagem da cidade');
+    addImageToContainer('background', `https://source.unsplash.com/1600x900/?${city}`, 'Imagem da cidade');
     
     cityElement.textContent = data.name;
     addImageToContainer('country', `https://www.countryflagicons.com/SHINY/24/${data.sys.country}.png`, 'Bandeira do país');
@@ -36,8 +36,6 @@ async function showWeatherData(city){
     addImageToContainer('weather-icon', `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`, 'Ícone do clima');
     humdityElement.innerText =` ${data.main.humidity}%`;
     windElement.innerText = ` ${data.wind.speed}km/h`;
-
-
 }
 
 //construindo imagens
