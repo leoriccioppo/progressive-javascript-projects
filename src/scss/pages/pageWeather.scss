@@ -2,22 +2,24 @@
 @use'../mixins';
 @use'../layout';
 
-#background{
-    width: 100%;
-    height: 100%;
-    position: fixed;
+#pageWeather{
+    @include mixins.gradient-background-line;
+    
+    @include layout.centerApp;
+   
+    .background{
+        width: 100%;
+        height: 100%;
+        position: fixed;
         top: 0;
         left: 0;     
-        z-index: -1;
-    @include mixins.gradient-background-line;
-    background-size: cover;
+        z-index: -1; 
+        background-size: cover;
         background-position: center;
-    @include layout.centerApp;
-    background-color: vars.$brand-primary;
+    }
 
 
     #screen{
-        @include mixins.gradient-background-line;
 
         z-index: 1;
 

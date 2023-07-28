@@ -1,4 +1,4 @@
-import { background, cityElement, countryFlagIcons, temperatureElement, descriptionElement, weatherElement, humidityElement, windElement } from './dom.js';
+import { pageWeather, cityElement, countryFlagIcons, temperatureElement, descriptionElement, weatherElement, humidityElement, windElement } from './dom.js';
 
 //pegar os dados do clima e trata erro
 export async function getWeatherData(city){

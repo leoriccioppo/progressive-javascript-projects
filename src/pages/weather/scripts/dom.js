@@ -1,5 +1,5 @@
 //background
-export const background = document.querySelector('#background');
+export const pageWeather = document.querySelector('#pageWeather');
 //form
 export const cityInput = document.querySelector('#city-input');
 export const searchButton = document.querySelector('#search');
