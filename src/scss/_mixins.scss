@@ -46,14 +46,14 @@
       display: grid;
       place-items: center;
       background: $background;
-      padding: $size / 10;
-      border-radius: $size / 8;
+      padding: calc($size / 10);
+      border-radius: calc($size / 8);
       box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
         -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
       border: 1px solid rgba(0, 0, 0, 0);
       cursor: pointer;
       transition: transform 0.9s, background-color 0.9s;
-      font-size: $size / 4;
+      font-size: calc($size / 4);
       color: $icon-color;
   
       // Aplicar estilos de transição para elementos filhos de .btn
@@ -84,8 +84,8 @@
 
 @mixin button-basic($background, $border-color, $text-color, $size, $text-hover, $background-hover) {
   // Calcula o padding proporcional ao $size
-  $padding-vertical: $size / 2;
-  $padding-horizontal: $size * 2;
+  $padding-vertical: calc($size / 2);
+  $padding-horizontal: calc($size * 2);
 
   background-color: $background;
   border: 0.125rem solid $border-color;

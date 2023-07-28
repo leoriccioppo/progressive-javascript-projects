@@ -9,14 +9,18 @@
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
 
     <!--defer == carregar depois do html-->
-    <script src="weather.js" defer></script>
+    <script src="scripts/dom.js" type="module" defer></script>
+    <script src="scripts/events.js" type="module" defer></script>
+    <script src="scripts/weather.js" type="module" defer></script>
+    <script src="scripts/helpers.js" type="module" defer></script>
+    <script src="scripts/ui.js" type="module" defer></script>
 
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
      crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body class="pageWeather">
+<body id="background">
     <main id="screen">
         <!--formulário-->
         
@@ -26,7 +30,7 @@
             <button class="btn" id="search" type="button"><i class="fa-solid fa-magnifying-glass btn-element"></i></button>
         </div>
 
-        <div class="weather-data hidden">
+        <div class="weather-data ">
             <h2>
                 <i class="fa-solid fa-location-dot"></i>
                 <span id="city"></span>
