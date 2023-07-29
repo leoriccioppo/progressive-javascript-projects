@@ -1,10 +1,14 @@
 @import'base/variables';
 
-@mixin gradient-background-line {
-    background: -moz-linear-gradient(40deg, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
-    background: -webkit-linear-gradient(40deg, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
-    background: linear-gradient(40deg, $brand-primary 25%, $brand-secondary 50%, $brand-tertiary 75%);
-  }
+@mixin gradient-background-line($opacity: 1) {
+  $color-primary: rgba($brand-primary, $opacity);
+  $color-secondary: rgba($brand-secondary, $opacity);
+  $color-tertiary: rgba($brand-tertiary, $opacity);
+
+  background: -moz-linear-gradient(40deg, $color-primary 25%, $color-secondary 50%, $color-tertiary 75%);
+  background: -webkit-linear-gradient(40deg, $color-primary 25%, $color-secondary 50%, $color-tertiary 75%);
+  background: linear-gradient(40deg, $color-primary 25%, $color-secondary 50%, $color-tertiary 75%);
+}
 
 @mixin hidden{
   .hidden {
