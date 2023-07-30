@@ -102,7 +102,6 @@ function handleCellClick(event) {
  
 
   handlePlayerMove(selectedCell, selectedCellIndex);
-  console.log(selectedCell)
 }
 
 //Lida com os movimentos do jogador
@@ -226,8 +225,6 @@ function updateScore(){
     removeClass();
     addCellClickListeners();
 }
-
-//alea
 
 // Checa vitória
 function checkWin(player) {
