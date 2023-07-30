@@ -1,6 +1,7 @@
 // Variáveis do jogo
 let currentPlayer;
 let player1;
+let playerPC;
 
 // Referências HTML
 const messageScreen = document.getElementById('message');
@@ -27,6 +28,9 @@ startButton.addEventListener('click', selectPlayer);
 function selectPlayer() {
   player1 = document.querySelector('input[name="player1"]:checked').value;
   currentPlayer = player1;
+  
+  // Define o jogador do computador com base na escolha do usuário
+  playerPC = player1 === 'X' ? 'O' : 'X';
   animateTransition(gameScreen, addCellClickListeners);
 }
 
@@ -103,6 +107,7 @@ function handleCellClick(event) {
 
 //Lida com os movimentos do jogador
 function handlePlayerMove(selectedCell, selectedCellIndex){
+  currentPlayer = player1;
     markCell(selectedCell, currentPlayer);
     
     removeCellClickListeners();
@@ -112,14 +117,19 @@ function handlePlayerMove(selectedCell, selectedCellIndex){
         //verifica se o jogador atual venceu
         alert('Jogador ' + currentPlayer + ' venceu!');
         // Implemente as ações apropriadas para lidar com a vitória (exibir mensagem, reiniciar o jogo, etc.)
+        updateScore();
       },500);
+      addCellClickListeners();
       } 
       else if (checkDraw()) {
         // Empate
       setTimeout(() => {
           alert('Empate!');
+          removeClass();
         }, 500);
         // Implemente as ações apropriadas para lidar com o empate (exibir mensagem, reiniciar o jogo, etc.)
+        addCellClickListeners();
+
       } 
       else {setTimeout(() => {
         togglePlayer();
@@ -140,8 +150,9 @@ function togglePlayer() {
 }
 
 // Jogadas do computador
-// Jogadas do computador
 function handleComputerMove() {
+  currentPlayer = playerPC;
+
     const emptyCells = Array.from(cellElements).filter(
         cell => !cell.classList.contains('star') && !cell.classList.contains('cloud')
     );
@@ -160,6 +171,7 @@ function handleComputerMove() {
                 if (checkWin(currentPlayer)) {
                     alert('Jogador ' + currentPlayer + ' venceu!');
                     // Ações para lidar com a vitória
+                    updateScore();
                     return; // Retorne para evitar que o código continue executando
                 }
                 togglePlayer();
@@ -195,15 +207,27 @@ function handleComputerMove() {
 
     setTimeout(() => {
         if (checkWin(currentPlayer)) {
+          //lidar com a vitória
+          updateScore();
             alert('Jogador ' + currentPlayer + ' venceu!');
-            // Ações para lidar com a vitória
-            return; // Retorne para evitar que o código continue executando
+            return; 
         }
         togglePlayer();
         addCellClickListeners();
     }, 500);
 }
 
+//Placar
+function updateScore(){
+    const playerScoreElement = document.getElementById(`player${currentPlayer}-score`);
+    let currentScore = parseInt(playerScoreElement.textContent);
+    currentScore++;
+    playerScoreElement.textContent = currentScore;
+    removeClass();
+    addCellClickListeners();
+}
+
+//alea
 
 // Checa vitória
 function checkWin(player) {
@@ -221,22 +245,25 @@ function checkDraw() {
   return Array.from(cellElements).every(cell => isCellOccupied(cell));
 }
 
+function removeClass(){
+  cellElements.forEach(cell => {
+    cell.classList.remove('star', 'cloud');
+  });
+}
+
+
 // Reiniciar jogo
 restart.addEventListener('click', startGame);
 function startGame() {
     currentPlayer = null;
     player1 = null;
-  
-    cellElements.forEach(cell => {
-      cell.classList.remove('star', 'cloud');
-    });
+
+    removeClass();
+    // Reiniciar o placar
+    const playerXScoreElement = document.getElementById('playerX-score');
+    const playerOScoreElement = document.getElementById('playerO-score');
+    playerXScoreElement.textContent = '0';
+    playerOScoreElement.textContent = '0';
   
     animateTransition(messageScreen, addCellClickListeners);
 }
-
-
-
-
-
-
-
