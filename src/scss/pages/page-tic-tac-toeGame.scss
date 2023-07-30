@@ -4,6 +4,7 @@
 .page-tic-tac-toeGame{
   //@include mixins.gradient-background-line;
   @include mixins.gradient-background-circle;
+  @include mixins.hidden;
 #message{
     width: 100%;
     height: 100%;

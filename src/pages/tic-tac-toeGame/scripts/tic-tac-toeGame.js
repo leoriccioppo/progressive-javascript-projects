@@ -140,27 +140,70 @@ function togglePlayer() {
 }
 
 // Jogadas do computador
+// Jogadas do computador
 function handleComputerMove() {
     const emptyCells = Array.from(cellElements).filter(
-      cell => !cell.classList.contains('star') && !cell.classList.contains('cloud')
+        cell => !cell.classList.contains('star') && !cell.classList.contains('cloud')
     );
+
+    // Verifica se há alguma combinação em que o computador pode ganhar na próxima jogada
+    for (const combo of winCombos) {
+        const [a, b, c] = combo;
+        const cells = [cellElements[a], cellElements[b], cellElements[c]];
+        const computerCells = cells.filter(cell => cell.classList.contains('cloud'));
+        const emptyCell = cells.find(cell => !cell.classList.contains('star') && !cell.classList.contains('cloud'));
+
+        if (computerCells.length === 2 && emptyCell) {
+            // O computador pode vencer na próxima jogada, então faz a jogada para ganhar o jogo
+            markCell(emptyCell, currentPlayer);
+            setTimeout(() => {
+                if (checkWin(currentPlayer)) {
+                    alert('Jogador ' + currentPlayer + ' venceu!');
+                    // Ações para lidar com a vitória
+                    return; // Retorne para evitar que o código continue executando
+                }
+                togglePlayer();
+                addCellClickListeners();
+            }, 500);
+            return;
+        }
+    }
+
+    // Verifica se há alguma combinação em que o jogador humano pode ganhar na próxima jogada
+    for (const combo of winCombos) {
+        const [a, b, c] = combo;
+        const cells = [cellElements[a], cellElements[b], cellElements[c]];
+        const humanCells = cells.filter(cell => cell.classList.contains('star'));
+        const emptyCell = cells.find(cell => !cell.classList.contains('star') && !cell.classList.contains('cloud'));
+
+        if (humanCells.length === 2 && emptyCell) {
+            // O jogador humano pode vencer na próxima jogada, então faz a jogada para bloquear a vitória
+            markCell(emptyCell, currentPlayer);
+            setTimeout(() => {
+                togglePlayer();
+                addCellClickListeners();
+            }, 500);
+            return;
+        }
+    }
+
+    // Caso contrário, faz um movimento aleatório
     const randomIndex = Math.floor(Math.random() * emptyCells.length);
     const randomCell = emptyCells[randomIndex];
-  
+
     markCell(randomCell, currentPlayer);
 
     setTimeout(() => {
-    if (checkWin(currentPlayer)) {
-      alert('Jogador ' + currentPlayer + ' venceu!');
-      // Ações para lidar com a vitória
-      return; // Retorne para evitar que o código continue executando
-    }
-    togglePlayer();
-    addCellClickListeners();
-    },500);
-    
-    
+        if (checkWin(currentPlayer)) {
+            alert('Jogador ' + currentPlayer + ' venceu!');
+            // Ações para lidar com a vitória
+            return; // Retorne para evitar que o código continue executando
+        }
+        togglePlayer();
+        addCellClickListeners();
+    }, 500);
 }
+
 
 // Checa vitória
 function checkWin(player) {
