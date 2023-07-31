@@ -111,11 +111,11 @@ function handlePlayerMove(selectedCell, selectedCellIndex){
     
     removeCellClickListeners();
 
+    //verifica se o jogador atual venceu
     if (checkWin(currentPlayer)) {
       setTimeout(() => {
-        //verifica se o jogador atual venceu
-        alert('Jogador ' + currentPlayer + ' venceu!');
         // Implemente as ações apropriadas para lidar com a vitória (exibir mensagem, reiniciar o jogo, etc.)
+        showWinModal(currentPlayer);
         updateScore();
       },500);
       addCellClickListeners();
@@ -123,10 +123,10 @@ function handlePlayerMove(selectedCell, selectedCellIndex){
       else if (checkDraw()) {
         // Empate
       setTimeout(() => {
+        // Implemente as ações apropriadas para lidar com o empate (exibir mensagem, reiniciar o jogo, etc.)
           showDrawModal();
           removeClass();
         }, 500);
-        // Implemente as ações apropriadas para lidar com o empate (exibir mensagem, reiniciar o jogo, etc.)
         addCellClickListeners();
 
       } 
@@ -168,8 +168,8 @@ function handleComputerMove() {
             markCell(emptyCell, currentPlayer);
             setTimeout(() => {
                 if (checkWin(currentPlayer)) {
-                    alert('Jogador ' + currentPlayer + ' venceu!');
                     // Ações para lidar com a vitória
+                    showWinModal(currentPlayer);
                     updateScore();
                     return; // Retorne para evitar que o código continue executando
                 }
@@ -208,8 +208,8 @@ function handleComputerMove() {
         if (checkWin(currentPlayer)) {
           //lidar com a vitória
           updateScore();
-            alert('Jogador ' + currentPlayer + ' venceu!');
-            return; 
+          showWinModal(currentPlayer);
+          return; 
         }
         togglePlayer();
         addCellClickListeners();
@@ -267,15 +267,28 @@ function startGame() {
 
 
 //mensagens
-
-function showDrawModal() {
-  // Abrir o modal
+// Abrir o modal Empate
+function showDrawModal() { 
   const drawModal = document.getElementById('drawModal');
   drawModal.showModal();
 }
 
-function closeDrawModal() {
-  // Fechar o modal
+// Abrir modal vitória
+function showWinModal(currentPlayer){
+  const winModal = document.getElementById('winModal');
+  winModal.showModal();
+
+  //atualizar simbolo do vencedor
+  const winnerImage = document.getElementById('winnerImage');
+  winnerImage.src = currentPlayer === 'X' ? '../../img/tic-tac-toeGame/star.svg' : '../../img/tic-tac-toeGame/cloud.svg';
+
+}
+
+// Fechar o modal
+function closeModal() {
+  const winModal = document.getElementById('winModal');
   const drawModal = document.getElementById('drawModal');
+
+  winModal.close();
   drawModal.close();
 }
