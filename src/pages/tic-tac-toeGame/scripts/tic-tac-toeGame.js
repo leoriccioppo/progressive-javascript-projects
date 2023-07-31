@@ -270,18 +270,21 @@ function startGame() {
 // Abrir o modal Empate
 function showDrawModal() { 
   const drawModal = document.getElementById('drawModal');
+  drawModal.classList.add('show');
   drawModal.showModal();
 }
 
 // Abrir modal vitória
 function showWinModal(currentPlayer){
   const winModal = document.getElementById('winModal');
+  winModal.classList.add('show');
   winModal.showModal();
 
   //atualizar simbolo do vencedor
   const winnerImage = document.getElementById('winnerImage');
   winnerImage.src = currentPlayer === 'X' ? '../../img/tic-tac-toeGame/star.svg' : '../../img/tic-tac-toeGame/cloud.svg';
 
+ 
 }
 
 // Fechar o modal
@@ -290,5 +293,7 @@ function closeModal() {
   const drawModal = document.getElementById('drawModal');
 
   winModal.close();
+  winModal.classList.remove('show');
   drawModal.close();
+  drawModal.classList.remove('show');
 }

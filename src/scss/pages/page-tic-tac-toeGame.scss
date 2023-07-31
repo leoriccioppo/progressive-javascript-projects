@@ -206,4 +206,37 @@
       max-width: 66%;
     }
   }
+
+ //modal 
+ .show{
+  width: 200px;
+  height: 250px;
+  border-radius: 14px;
+  align-content: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color:vars.$black-lighter-2;
+  box-shadow: 6px 6px 10px -1px rgb(0,0,0,0.15),
+	      -6px -6px 10px -1px rgb(0,0,0,0.7);
+        @include mixins.gradient-background-circle;
+
+        &:backdrop{
+          background-color: rgb(255, 255, 255, 0.65);
+        }
+  
+  img{
+    width: 80%;
+    height: 80%;
+  }
+
+    button{
+      @include mixins.button-basic(vars.$brand-primary, vars.$white, vars.$white, 0.66rem, vars.$brand-primary-darker-1, vars.$brand-tertiary);
+    }
+ }
+
+
+
 }
