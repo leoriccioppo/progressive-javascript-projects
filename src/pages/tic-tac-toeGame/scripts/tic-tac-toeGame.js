@@ -123,7 +123,7 @@ function handlePlayerMove(selectedCell, selectedCellIndex){
       else if (checkDraw()) {
         // Empate
       setTimeout(() => {
-          alert('Empate!');
+          showDrawModal();
           removeClass();
         }, 500);
         // Implemente as ações apropriadas para lidar com o empate (exibir mensagem, reiniciar o jogo, etc.)
@@ -263,4 +263,19 @@ function startGame() {
     playerOScoreElement.textContent = '0';
   
     animateTransition(messageScreen, addCellClickListeners);
+}
+
+
+//mensagens
+
+function showDrawModal() {
+  // Abrir o modal
+  const drawModal = document.getElementById('drawModal');
+  drawModal.showModal();
+}
+
+function closeDrawModal() {
+  // Fechar o modal
+  const drawModal = document.getElementById('drawModal');
+  drawModal.close();
 }
