@@ -666,22 +666,24 @@ background: linear-gradient(90deg, rgb(197,139,229,0.896796218487395) 0%,
 .page-tic-tac-toeGame .show {
   width: 200px;
   height: 250px;
-  border-radius: 14px;
+  border-radius: 8px;
+  gap: 8px;
   align-content: center;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #7F7F86;
-  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(0, 0, 0, 0.7);
+  color: #491764;
+  border-color: #FFB7FD;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(0, 0, 0, 0.4);
   background: #C58BE5;
   background: -moz-radial-gradient(circle, #C58BE5 25%, #FFB7FD 50%, #A8C0EE 75%);
   background: -webkit-radial-gradient(circle, #C58BE5 25%, #FFB7FD 50%, #A8C0EE 75%);
   background: radial-gradient(circle, #C58BE5 25%, #FFB7FD 50%, #A8C0EE 75%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#C58BE5", endColorstr="#A8C0EE", GradientType=1);
 }
-.page-tic-tac-toeGame .show:backdrop {
+.page-tic-tac-toeGame .show::backdrop {
   background-color: rgba(255, 255, 255, 0.65);
 }
 .page-tic-tac-toeGame .show img {
